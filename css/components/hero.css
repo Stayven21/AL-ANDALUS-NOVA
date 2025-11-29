@@ -1,0 +1,49 @@
+/* HERO BACKGROUND */
+.hero-bg{
+  background-image:
+    linear-gradient(180deg, rgba(23, 224, 171, 0.55), rgba(3, 7, 18, 0.35)),
+    url('https://www.hotelscombined.com/rimg/dimg/dynamic/314-2019-08-f9af4228ecffc7e084aad67034a43ed5.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 7rem 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .hero-content {
+    padding: 9rem 1.5rem;
+  }
+}
+
+.hero-stats {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-stat {
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(6px) saturate(120%);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  min-width: 100px;
+}
+
+.hero-stat .number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.hero-stat .label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  margin-top: 0.25rem;
+}

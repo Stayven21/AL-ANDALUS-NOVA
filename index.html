@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AL ANDALUS NOVA GROUP - Premium Real Estate</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- External Libraries -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css">
+  
+  <!-- Our CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components/navbar.css">
+  <link rel="stylesheet" href="css/components/hero.css">
+  <link rel="stylesheet" href="css/components/sections.css">
+  
+  <style>
+    /* Custom styles for enhanced About Us section */
+    .about-gradient {
+      background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #f0fdf4 100%);
+    }
+    
+    .vision-card {
+      background: linear-gradient(145deg, #ffffff, #f8fafc);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+    }
+    
+    .vision-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .accent-border {
+      border-left: 4px solid #10b981;
+    }
+    
+    .stat-number {
+      background: linear-gradient(135deg, #10b981, #059669);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .floating-element {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
+</head>
+<body class="font-sans antialiased text-gray-900 bg-white">
+
+  <!-- Navigation -->
+  <nav id="mainNav">
+    <div class="nav-container">
+      <a href="index.html" class="logo-container">
+        <img src="images/logo.png" alt="AL ANDALUS NOVA Logo" class="logo-img">
+        <div class="logo-text">
+          <div class="logo-title">AL ANDALUS NOVA</div>
+          <div class="logo-subtitle">Group of Companies</div>
+        </div>
+      </a>
+
+      <div class="desktop-menu">
+        <a href="index.html" class="nav-item active">Real Estate</a>
+        <a href="technical-services.html" class="nav-item">Technical Services</a>
+        <a href="general-trading.html" class="nav-item">General Trading</a>
+        <a href="gallery.html" class="nav-item">Sponsors</a>
+        <a href="contact.html" class="btn-gold">
+          <i class="fas fa-envelope"></i>
+          Contact Us
+        </a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileNav">
+    <a href="index.html" class="mobile-nav-item">Real Estate</a>
+    <a href="technical-services.html" class="mobile-nav-item">Technical Services</a>
+    <a href="general-trading.html" class="mobile-nav-item">General Trading</a>
+    <a href="gallery.html" class="mobile-nav-item">Sponsors</a>
+    <a href="contact.html" class="mobile-nav-item">Contact Us</a>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero-bg min-h-screen flex items-center">
+    <div class="hero-content">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div class="text-white" data-aos="fade-right">
+          <div class="inline-flex items-center gap-3 mb-4">
+            <span class="rounded-full px-3 py-1 bg-white/8 text-sm font-medium">Since 2010</span>
+            <span class="text-sm opacity-80">International • UAE • Turkey • Global</span>
+          </div>
+
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight drop-shadow-md">
+            AL ANDALUS NOVA <span class="text-emerald-300">Real Estate L.L.C</span>
+          </h1>
+          <p class="text-lg md:text-xl font-semibold text-white/90 mt-2">Innovative Developments • Premium Quality</p>
+
+          <div class="gold-underline"></div>
+
+          <p class="mt-6 text-lg md:text-xl text-white/90 max-w-xl leading-relaxed">
+            Creating exceptional residential, commercial & mixed-use spaces with a focus on sustainable design, exquisite finishes, and future-ready infrastructure.
+          </p>
+
+          <div class="mt-8 flex gap-4 items-center flex-wrap">
+            <a href="#about" class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/95 text-emerald-900 font-semibold shadow-lg transition hover:shadow-xl">
+              Explore Projects
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h14M12 5l7 7-7 7" stroke="#064e3b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="contact.html" class="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-white/30 text-white/95 hover:bg-white/10 transition">
+              Contact Us
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat" data-aos="fade-up" data-aos-delay="100">
+              <div class="number">48+</div>
+              <div class="label">Completed</div>
+            </div>
+            <div class="hero-stat" data-aos="fade-up" data-aos-delay="200">
+              <div class="number">6</div>
+              <div class="label">Countries</div>
+            </div>
+            <div class="hero-stat" data-aos="fade-up" data-aos-delay="300">
+              <div class="number">12</div>
+              <div class="label">Awards</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative" data-aos="zoom-in">
+          <div class="content-image">
+            <img src="images/stateVilla.png" 
+                 alt="Luxury Real Estate Project" class="w-full">
+          </div>
+          <div class="absolute left-6 bottom-6 p-4 rounded-xl glass border border-white/10">
+            <div class="text-xs text-white/80">Flagship Project</div>
+            <div class="text-lg font-semibold text-blue-100">Marina Residences</div>
+            <div class="text-sm text-white/80 mt-1">Luxury waterfront living</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+<!-- About Section -->
+<section id="about" class="section-padding bg-gradient-to-b from-white to-emerald-50">
+  <div class="container">
+    <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-emerald-900 mb-4">About AL ANDALUS NOVA</h2>
+      <div class="gold-underline mx-auto"></div>
+      <p class="text-lg text-gray-700 mt-6 leading-relaxed">
+        We are a visionary property developer focused on crafting landmark residential, commercial, and mixed-use developments with a commitment to sustainability, craftsmanship, and timeless design.
+      </p>
+    </div>
+    
+    <div class="grid lg:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
+      <div class="space-y-6" data-aos="fade-right">
+        <div class="bg-white rounded-2xl p-8 shadow-lg border border-emerald-100">
+          <h3 class="text-2xl font-bold text-emerald-900 mb-4">Our Vision</h3>
+          <p class="text-gray-700 leading-relaxed">
+            To set new benchmarks in design, quality and sustainable urban development that inspire communities and transform cityscapes for generations to come.
+          </p>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-lg border border-emerald-100">
+          <h3 class="text-2xl font-bold text-emerald-900 mb-4">Our Mission</h3>
+          <ul class="space-y-3 text-gray-700">
+            <li class="flex items-start">
+              <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+              <span>Deliver premium, future-ready projects with innovative design</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+              <span>Champion sustainable practices and environmental responsibility</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fas fa-check text-emerald-500 mt-1 mr-3"></i>
+              <span>Ensure exceptional client satisfaction at every stage</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="space-y-6" data-aos="fade-left">
+        <div class="grid grid-cols-2 gap-6">
+          <div class="bg-emerald-600 text-white rounded-2xl p-6 text-center">
+            <div class="text-3xl font-bold mb-2">48+</div>
+            <div class="text-emerald-100">Completed Projects</div>
+          </div>
+          <div class="bg-emerald-500 text-white rounded-2xl p-6 text-center">
+            <div class="text-3xl font-bold mb-2">6</div>
+            <div class="text-emerald-100">Countries</div>
+          </div>
+          <div class="bg-emerald-400 text-white rounded-2xl p-6 text-center">
+            <div class="text-3xl font-bold mb-2">12</div>
+            <div class="text-emerald-100">Awards Won</div>
+          </div>
+          <div class="bg-emerald-700 text-white rounded-2xl p-6 text-center">
+            <div class="text-3xl font-bold mb-2">2010</div>
+            <div class="text-emerald-100">Established</div>
+          </div>
+        </div>
+        
+        <div class="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl p-8 text-white">
+          <h3 class="text-xl font-bold mb-4">Our Expertise</h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div class="text-center">
+              <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                <i class="fas fa-home text-white"></i>
+              </div>
+              <div class="font-semibold">Residential</div>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                <i class="fas fa-building text-white"></i>
+              </div>
+              <div class="font-semibold">Commercial</div>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                <i class="fas fa-city text-white"></i>
+              </div>
+              <div class="font-semibold">Mixed-Use</div>
+            </div>
+            <div class="text-center">
+              <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                <i class="fas fa-leaf text-white"></i>
+              </div>
+              <div class="font-semibold">Sustainable</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Services Preview -->
+  <!-- Services Preview -->
+<section class="section-padding bg-white">
+  <div class="container">
+    <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-emerald-900 mb-4">Our Companies</h2>
+      <div class="gold-underline mx-auto"></div>
+      <p class="text-lg text-gray-600 mt-6">
+        Discover our diverse portfolio of companies specializing in real estate, technical services, and international trading
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div class="service-card text-center" data-aos="fade-up">
+        <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fas fa-building text-emerald-600 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-emerald-900 mb-4">Real Estate</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Premium residential and commercial developments with sustainable design principles and innovative architecture.
+        </p>
+        <a href="index.html" class="inline-flex items-center gap-2 mt-6 text-emerald-600 font-semibold hover:text-emerald-700 transition">
+          Learn More 
+          <i class="fas fa-arrow-right text-sm"></i>
+        </a>
+      </div>
+      
+      <div class="service-card text-center" data-aos="fade-up" data-aos-delay="100">
+        <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fas fa-cogs text-emerald-600 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-emerald-900 mb-4">Technical Services</h3>
+        <p class="text-gray-700 leading-relaxed">
+          Exhibition stand design and contracting with full turnkey solutions and professional project management.
+        </p>
+        <a href="technical-services.html" class="inline-flex items-center gap-2 mt-6 text-emerald-600 font-semibold hover:text-emerald-700 transition">
+          Learn More 
+          <i class="fas fa-arrow-right text-sm"></i>
+        </a>
+      </div>
+      
+      <div class="service-card text-center" data-aos="fade-up" data-aos-delay="200">
+        <div class="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <i class="fas fa-globe text-emerald-600 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-emerald-900 mb-4">General Trading</h3>
+        <p class="text-gray-700 leading-relaxed">
+          International trading and strategic investments across multiple sectors with global supply chain expertise.
+        </p>
+        <a href="general-trading.html" class="inline-flex items-center gap-2 mt-6 text-emerald-600 font-semibold hover:text-emerald-700 transition">
+          Learn More 
+          <i class="fas fa-arrow-right text-sm"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Enhanced About Us Section -->
+  <section class="section-padding about-gradient relative overflow-hidden">
+    <!-- Background decorative elements -->
+    <div class="absolute top-10 left-10 w-20 h-20 rounded-full bg-emerald-200/30 floating-element"></div>
+    <div class="absolute bottom-10 right-10 w-16 h-16 rounded-full bg-emerald-300/20 floating-element" style="animation-delay: 2s;"></div>
+    <div class="absolute top-1/3 right-1/4 w-12 h-12 rounded-full bg-yellow-200/30 floating-element" style="animation-delay: 4s;"></div>
+    
+    <div class="container relative z-10">
+      <div class="max-w-4xl mx-auto text-center mb-12" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-emerald-900 mb-4">Our Story</h2>
+        <div class="gold-underline mx-auto"></div>
+        <p class="text-lg text-gray-600 mt-6 max-w-2xl mx-auto">
+          Discover the vision and passion that drives our commitment to excellence in property development
+        </p>
+      </div>
+      
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div data-aos="fade-right">
+          <div class="vision-card rounded-2xl p-8 h-full">
+            <div class="flex items-start mb-6">
+              <div class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                <i class="fas fa-building text-emerald-600 text-xl"></i>
+              </div>
+              <div>
+                <h3 class="text-2xl font-bold text-emerald-900 mb-2">About AL ANDALUS NOVA</h3>
+                <p class="text-gray-700 leading-relaxed">
+                  AL ANDALUS NOVA Real Estate is a visionary and dynamic property development company dedicated to creating exceptional living, commercial, and mixed-use spaces. With a focus on innovation, quality, and sustainability, we transform ideas into landmark projects that redefine urban landscapes and enhance community lifestyles.
+                </p>
+              </div>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-4 mt-8 pt-6 border-t border-gray-100">
+              <div class="text-center">
+                <div class="stat-number text-2xl font-bold">48+</div>
+                <div class="text-sm text-gray-600 mt-1">Projects</div>
+              </div>
+              <div class="text-center">
+                <div class="stat-number text-2xl font-bold">6</div>
+                <div class="text-sm text-gray-600 mt-1">Countries</div>
+              </div>
+              <div class="text-center">
+                <div class="stat-number text-2xl font-bold">12</div>
+                <div class="text-sm text-gray-600 mt-1">Awards</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div data-aos="fade-left" data-aos-delay="200">
+          <div class="grid gap-6">
+            <div class="vision-card rounded-xl p-6 accent-border">
+              <div class="flex items-start">
+                <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <i class="fas fa-lightbulb text-emerald-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-emerald-800 text-lg mb-2">Our Vision</h4>
+                  <p class="text-gray-700">
+                    To set new benchmarks in design, quality and sustainable urban development that inspire communities and transform cityscapes.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="vision-card rounded-xl p-6 accent-border">
+              <div class="flex items-start">
+                <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <i class="fas fa-bullseye text-emerald-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-emerald-800 text-lg mb-2">Our Mission</h4>
+                  <p class="text-gray-700">
+                    To deliver premium, future-ready projects that champion sustainable practices while ensuring exceptional client satisfaction at every stage.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="vision-card rounded-xl p-6 accent-border">
+              <div class="flex items-start">
+                <div class="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                  <i class="fas fa-handshake text-emerald-600"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-emerald-800 text-lg mb-2">Our Values</h4>
+                  <p class="text-gray-700">
+                    Integrity, innovation, sustainability, and excellence guide every decision we make and every project we undertake.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center" data-aos="fade-up" data-aos-delay="300">
+        <a href="contact.html" class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-emerald-600 text-white font-semibold shadow-lg transition hover:bg-emerald-700 hover:shadow-xl">
+          <i class="fas fa-rocket"></i>
+          Partner With Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding bg-emerald-900 text-white">
+    <div class="container text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Ready to Start Your Project?</h2>
+      <p class="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        Get in touch with our team to discuss how we can bring your vision to life.
+      </p>
+      <a href="contact.html" class="btn-gold text-lg px-8 py-4" data-aos="fade-up" data-aos-delay="200">
+        <i class="fas fa-paper-plane"></i>
+        Get Started Today
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-emerald-950 text-white py-12">
+    <div class="container">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <img src="images/logo.png" alt="Logo" class="w-10 h-10 rounded-full">
+            <div>
+              <div class="font-bold">AL ANDALUS NOVA</div>
+              <div class="text-sm text-emerald-300">Group of Companies</div>
+            </div>
+          </div>
+          <p class="text-emerald-200 text-sm">
+            Creating exceptional spaces and services across real estate, technical services, and international trading.
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Companies</h4>
+          <ul class="space-y-2 text-sm text-emerald-200">
+            <li><a href="index.html" class="hover:text-white transition">Real Estate</a></li>
+            <li><a href="alandalus/technical-services.html" class="hover:text-white transition">Technical Services</a></li>
+            <li><a href="alandalus/general-trading.html" class="hover:text-white transition">General Trading</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-sm text-emerald-200">
+            <li><a href="alandalus/gallery.html" class="hover:text-white transition">Gallery</a></li>
+            <li><a href="alandalus/contact.html" class="hover:text-white transition">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-semibold mb-4">Contact Info</h4>
+          <ul class="space-y-2 text-sm text-emerald-200">
+            <li class="flex items-center gap-2">
+              <i class="fas fa-envelope"></i>
+              info@alandalusnova.com
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fas fa-globe"></i>
+              www.alandalusnova.com
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-emerald-800 mt-8 pt-8 text-center text-sm text-emerald-400">
+        <p>&copy; <span id="year"></span> AL ANDALUS NOVA. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to Top -->
+  <button id="scrollTop" class="fixed right-6 bottom-6 w-12 h-12 rounded-full bg-emerald-600 text-white shadow-lg hidden items-center justify-center z-40 hover:bg-emerald-700 transition">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+    
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="js/main.js"></script>
+  <script src="js/components/animations.js"></script>
+</body>
+</html>
