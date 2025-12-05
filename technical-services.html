@@ -12,6 +12,47 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components/navbar.css">
   <link rel="stylesheet" href="css/components/sections.css">
+  
+  <style>
+    /* Add custom CSS for background image */
+    .hero-bg {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), 
+                  url('images/gg123.jpg') no-repeat center center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    
+    /* Bottom info bar */
+    .bottom-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      padding: 10px 0;
+    }
+    
+    /* Weather/Language/Time info */
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    /* Mobile optimization */
+    @media (max-width: 768px) {
+      .hero-bg {
+        background-attachment: scroll;
+        background-position: center;
+      }
+      .bottom-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+  </style>
 </head>
 <body class="font-sans antialiased text-gray-900 bg-white">
 
@@ -52,21 +93,55 @@
     <a href="contact.html" class="mobile-nav-item">Contact Us</a>
   </div>
 
-  <!-- Hero Section -->
-  <section class="section-padding bg-gradient-to-br from-blue-600 to-blue-800 text-white">
-    <div class="container">
+  <!-- Hero Section with Background Image -->
+  <section class="section-padding hero-bg text-white min-h-[100vh] relative flex items-center">
+    <div class="container relative z-10">
       <div class="text-center max-w-4xl mx-auto">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6" data-aos="fade-up">
           AL ANDALUS NOVA TECHNICAL SERVICES L.L.C
         </h1>
         <div class="gold-underline mx-auto"></div>
-        <p class="text-xl md:text-2xl text-blue-100 mt-6 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+        <p class="text-xl md:text-2xl text-blue-100 mt-6 mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="100">
           Exhibition Stand Design & Build • International Experience • Innovative Solutions
         </p>
+        <div class="mb-16" data-aos="fade-up" data-aos-delay="200">
+          <a href="#contact" class="btn-gold inline-block px-8 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition duration-300 transform hover:scale-105">
+            <i class="fas fa-hard-hat mr-2"></i>
+            Get Your Quote Today
+          </a>
+        </div>
+        
+        <!-- Search Bar -->
+        
+      </div>
+    </div>
+    
+    <!-- Bottom Info Bar -->
+    <div class="bottom-info text-white">
+      <div class="container">
+        <div class="flex justify-between items-center">
+          <!-- Weather -->
+          <div class="info-item" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-cloud text-blue-300"></i>
+            <span class="font-semibold">27°C</span>
+            <span class="text-gray-300">Mostly cloudy</span>
+          </div>
+          
+          <!-- Language Selector -->
+          
+          
+          <!-- Date & Time -->
+          <div class="info-item" data-aos="fade-up" data-aos-delay="600">
+            <i class="fas fa-clock text-blue-300"></i>
+            <span class="font-semibold">08:44 pm</span>
+            <span class="text-gray-300">12/05/2025</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- The rest of your sections remain exactly the same -->
   <!-- About Section -->
   <section class="section-padding bg-white">
     <div class="container">
@@ -255,7 +330,7 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="section-padding bg-blue-700 text-white">
+  <section id="contact" class="section-padding bg-blue-700 text-white">
     <div class="container text-center">
       <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Ready to Transform Your Space?</h2>
       <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
@@ -283,5 +358,22 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/main.js"></script>
+  
+  <!-- Optional: Live time update -->
+  <script>
+    function updateTime() {
+      const now = new Date();
+      const timeElement = document.querySelector('.info-item:nth-child(3) span:nth-child(2)');
+      if (timeElement) {
+        timeElement.textContent = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      }
+    }
+    
+    // Update time every minute
+    setInterval(updateTime, 60000);
+    
+    // Initialize
+    updateTime();
+  </script>
 </body>
 </html>
