@@ -28,6 +28,596 @@
         background-attachment: scroll;
       }
     }
+      /* Add custom CSS for background image */
+  .hero-bg-trading {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5)), 
+                url('images/GNRAL.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  
+  /* Mobile optimization */
+  @media (max-width: 768px) {
+    .hero-bg-trading {
+      background-attachment: scroll;
+    }
+  }
+  
+  /* ========== GALLERY CSS STARTS HERE ========== */
+  /* Gallery Grid */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 4/3;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: #f8fafc;
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+  
+  .gallery-item:hover .gallery-img {
+    transform: scale(1.05);
+  }
+  
+  .gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    padding: 1.5rem 1rem 1rem;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+  }
+  
+  .gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+  }
+  
+  .gallery-caption {
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+  }
+  
+  /* Loading Spinner */
+  .loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #10b981;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .lightbox.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    position: relative;
+  }
+  
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  
+  .lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: white;
+    color: #1e40af;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .lightbox-close:hover {
+    background: #ef4444;
+    color: white;
+  }
+  
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    color: #1e40af;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .lightbox-nav:hover {
+    background: #10b981;
+    color: white;
+  }
+  
+  .lightbox-prev {
+    left: -60px;
+  }
+  
+  .lightbox-next {
+    right: -60px;
+  }
+  
+  .lightbox-info {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+  }
+  
+  /* Mobile Responsive for Lightbox */
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    
+    .lightbox-nav {
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+      position: fixed;
+      bottom: 20px;
+      top: auto;
+    }
+    
+    .lightbox-prev {
+      left: 20px;
+    }
+    
+    .lightbox-next {
+      right: 20px;
+    }
+    
+    .lightbox-close {
+      top: 20px;
+      right: 20px;
+    }
+  }
+/* ========== CERTIFICATE GALLERY CSS ========== */
+  /* Certificate Grid - Special for document display */
+  .certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+  }
+  
+  .certificate-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 1/1.414; /* A4 paper ratio */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    background: white;
+    border: 1px solid #e5e7eb;
+  }
+  
+  .certificate-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border-color: #10b981;
+  }
+  
+  .certificate-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+  }
+  
+  .certificate-item:hover .certificate-img {
+    transform: scale(1.03);
+  }
+  
+  /* Certificate Badge */
+  .certificate-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    z-index: 2;
+  }
+  
+  /* Certificate Overlay with Document Info */
+  .certificate-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.7) 60%, transparent);
+    color: white;
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .certificate-item:hover .certificate-overlay {
+    transform: translateY(0);
+  }
+  
+  .certificate-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+  }
+  
+  .certificate-details {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    line-height: 1.4;
+  }
+  
+  .certificate-number {
+    color: #fbbf24;
+    font-weight: 600;
+  }
+  
+  .certificate-date {
+    color: #a7f3d0;
+    font-size: 0.8rem;
+  }
+  
+  /* Certificate Icons */
+  .certificate-icon {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(-10px) scale(0.8);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+  }
+  
+  .certificate-item:hover .certificate-icon {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  
+  .certificate-icon i {
+    color: #10b981;
+    font-size: 1.2rem;
+  }
+  
+  /* Loading State */
+  .loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #10b981;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 3rem auto;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Enhanced Lightbox for Certificates */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.97);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .lightbox.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  }
+  
+  .lightbox-img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    display: block;
+  }
+  
+  .lightbox-details {
+    padding: 1.5rem;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .lightbox-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+  }
+  
+  .lightbox-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: #4b5563;
+  }
+  
+  .lightbox-info-item {
+    padding: 0.5rem 0;
+  }
+  
+  .lightbox-info-label {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Lightbox Controls */
+  .lightbox-close {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background: white;
+    color: #1e40af;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .lightbox-close:hover {
+    background: #ef4444;
+    color: white;
+    transform: rotate(90deg);
+  }
+  
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    color: #1e40af;
+    border: none;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .lightbox-nav:hover {
+    background: #10b981;
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .lightbox-prev {
+    left: -70px;
+  }
+  
+  .lightbox-next {
+    right: -70px;
+  }
+  
+  .lightbox-counter {
+    position: absolute;
+    top: -45px;
+    left: 0;
+    color: white;
+    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+  }
+  
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .certificate-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .lightbox {
+      padding: 1rem;
+    }
+    
+    .lightbox-nav {
+      width: 45px;
+      height: 45px;
+      font-size: 1.2rem;
+      position: fixed;
+      bottom: 20px;
+      top: auto;
+    }
+    
+    .lightbox-prev {
+      left: 20px;
+      right: auto;
+    }
+    
+    .lightbox-next {
+      right: 20px;
+      left: auto;
+    }
+    
+    .lightbox-close {
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+    }
+    
+    .lightbox-details {
+      padding: 1rem;
+    }
+    
+    .lightbox-info {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Certificate Filter (Optional) */
+  .certificate-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  .filter-btn {
+    padding: 0.5rem 1.25rem;
+    background: #f3f4f6;
+    color: #4b5563;
+    border: none;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-btn:hover {
+    background: #e5e7eb;
+    color: #374151;
+  }
+  
+  .filter-btn.active {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  }
+  
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: #6b7280;
+  }
+  
+  .empty-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+  
+  /* ========== CERTIFICATE GALLERY CSS END ========== */
+
   </style>
   <!-- Favicon -->
 <link rel="shortcut icon" href="images/Logo/logowebsite.png" type="image/png">
@@ -51,7 +641,6 @@
         <a href="technical-services.html" class="nav-item">Technical Services</a>
         <a href="general-trading.html" class="nav-item active">General Trading</a>
         <a href="gallery.html" class="nav-item">Sponsors</a>
-        
         <a href="contact.html" class="btn-gold">
           <i class="fas fa-envelope"></i>
           Contact Us
@@ -85,15 +674,107 @@
           Innovating Across Industries • Investing in Excellence • International Trading
         </p>
         <div class="mt-10" data-aos="fade-up" data-aos-delay="200">
-          <a href="https://www.canva.com/design/DAG7FIADgLs/16iIM4v08-MmtPKXiQbprA/view?utm_content=DAG7FIADgLs&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h4a8fd15a80" class="btn-gold inline-block px-8 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition duration-300">
+          <a href="#contact" class="btn-gold inline-block px-8 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition duration-300">
             <i class="fas fa-handshake mr-2"></i>
-            Certificates
+            Start Trading Partnership
           </a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Certificate Gallery Section -->
+  <section class="section-padding bg-gradient-to-b from-white to-amber-50">
+    <div class="container">
+      <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+        <h2 class="text-3xl md:text-4xl font-bold text-emerald-900 mb-4">Our Certificates & Trademarks</h2>
+        <div class="gold-underline mx-auto"></div>
+        <p class="text-lg text-gray-600 mt-6">
+          Official trademark registrations and certificates from Türk Patent ve Marka Kurumu
+        </p>
+      </div>
+
+      <!-- Optional Filter (if you have different types) -->
+      <div class="certificate-filter" data-aos="fade-up" data-aos-delay="100">
+        <button class="filter-btn active" onclick="filterCertificates('all')">All Certificates</button>
+        <button class="filter-btn" onclick="filterCertificates('Ticaret')">Trademarks</button>
+        <button class="filter-btn" onclick="filterCertificates('Hizmet')">Services</button>
+        <button class="filter-btn" onclick="filterCertificates('2023')">2023</button>
+        <button class="filter-btn" onclick="filterCertificates('2024')">2024</button>
+        <button class="filter-btn" onclick="filterCertificates('2025')">2025</button>
+      </div>
+
+      <!-- Certificate Grid -->
+      <div class="certificate-grid" id="certificateGallery">
+        <!-- Certificates will be loaded dynamically -->
+      </div>
+     
+      <!-- Empty State (Hidden by default) -->
+      <div id="certificateEmpty" class="hidden empty-state">
+        <i class="fas fa-file-alt"></i>
+        <h3 class="text-xl font-semibold text-gray-700 mb-2">No certificates found</h3>
+        <p class="text-gray-600">Try selecting a different filter category.</p>
+      </div>
+      
+      <div class="text-center mt-12" data-aos="fade-up">
+        <button onclick="window.open('images/certificates/certificate-pack.pdf', '_blank')" class="btn-gold px-6 py-3 inline-flex items-center">
+          <i class="fas fa-download mr-2"></i>
+          Download All Certificates (PDF)
+        </button>
+        <p class="text-sm text-gray-500 mt-2">All trademarks registered with Türk Patent ve Marka Kurumu</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox for Certificate View -->
+  <div class="lightbox" id="certificateLightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous certificate">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    
+    <div class="lightbox-content">
+      <img id="lightboxImage" src="" alt="" class="lightbox-img">
+      <div class="lightbox-details">
+        <h3 class="lightbox-title" id="lightboxTitle"></h3>
+        <div class="lightbox-info" id="lightboxInfo">
+          <!-- Certificate details will be populated here -->
+        </div>
+      </div>
+    </div>
+    
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next certificate">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+    
+    <div class="lightbox-counter" id="lightboxCounter"></div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="galleryLightbox">
+    <button class="lightbox-close" id="lightboxClose">
+      <i class="fas fa-times"></i>
+    </button>
+    
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+    
+    <div class="lightbox-content">
+      <img id="lightboxImage" src="" alt="" class="lightbox-img">
+      <div class="lightbox-info">
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxDesc"></p>
+      </div>
+    </div>
+    
+    <button class="lightbox-nav lightbox-next" id="lightboxNext">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
   <!-- About Section -->
   <section class="section-padding bg-white">
     <div class="container">
@@ -335,5 +1016,398 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/main.js"></script>
+<script>
+  // Certificate Gallery Configuration
+  const certificateGallery = {
+    certificates: [
+      {
+        img: "images/certificates/1.jpg",
+        number: "2023143321",
+        title: "Trademark Certificate - Trade",
+        type: "Ticaret",
+        category: "Trade",
+        date: "24.05.2024",
+        validFrom: "26.10.2023",
+        validFor: "10 Years",
+        classes: "32",
+        owner: "CISTCO DIŞTİCARET LİMİTED ŞİRKETİ",
+        description: "Trademark registration certificate from Türk Patent ve Marka Kurumu"
+      },
+      {
+        img: "images/certificates/2.jpg",
+        number: "2023143334",
+        title: "Trademark Certificate - Trade & Joint",
+        type: "Ticaret - Ortak",
+        category: "Trade",
+        date: "21.04.2024",
+        validFrom: "26.10.2023",
+        validFor: "10 Years",
+        classes: "32",
+        owner: "CISTCO DIŞTİCARET LİMİTED ŞİRKETİ",
+        description: "Joint trademark registration certificate"
+      },
+      {
+        img: "images/certificates/3.jpg",
+        number: "2023127549",
+        title: "Trademark Certificate - Trade & Service",
+        type: "Ticaret - Hizmet",
+        category: "Services",
+        date: "22.01.2024",
+        validFrom: "27.09.2023",
+        validFor: "10 Years",
+        classes: "30, 43",
+        owner: "CISTCO DIŞTİCARET LİMİTED ŞİRKETİ",
+        description: "Trademark and service certificate"
+      },
+      {
+        img: "images/certificates/4.jpg",
+        number: "2023143315",
+        title: "Trademark Certificate - Service",
+        type: "Ticaret - Hizmet",
+        category: "Services",
+        date: "30.04.2024",
+        validFrom: "26.10.2023",
+        validFor: "10 Years",
+        classes: "32",
+        owner: "CISTCO DIŞTİCARET LİMİTED ŞİRKETİ",
+        description: "Service trademark certificate"
+      },
+      {
+        img: "images/certificates/5.jpg",
+        number: "2023143325",
+        title: "Trademark Certificate - Service",
+        type: "Ticaret - Hizmet",
+        category: "Services",
+        date: "08.05.2024",
+        validFrom: "26.10.2023",
+        validFor: "10 Years",
+        classes: "32",
+        owner: "CISTCO DIŞTİCARET LİMİTED ŞİRKETİ",
+        description: "Service trademark registration certificate"
+      },
+      {
+        img: "images/certificates/6.jpg",
+        number: "2025032020",
+        title: "CISTCO Trademark Certificate",
+        type: "Ticaret - Hizmet",
+        category: "Services",
+        date: "22.07.2025",
+        validFrom: "10.03.2025",
+        validFor: "10 Years",
+        classes: "30, 39",
+        owner: "CISTCO DIŞTİCARET LİMİTED ŞİRKETİ",
+        description: "CISTCO brand trademark certificate",
+        brandName: "CISTCO"
+      }
+    ],
+    
+    currentIndex: 0,
+    
+    // Initialize gallery
+    init: function() {
+      this.loadGallery();
+      this.setupLightbox();
+      this.setupFilters();
+    },
+    
+    // Load certificate gallery
+    loadGallery: function() {
+      const galleryGrid = document.getElementById('certificateGallery');
+      const loadingEl = document.getElementById('certificateLoading');
+      const errorEl = document.getElementById('certificateError');
+      
+      if (!galleryGrid) return;
+      
+      let loadedCount = 0;
+      const totalCertificates = this.certificates.length;
+      
+      const checkAllLoaded = () => {
+        loadedCount++;
+        if (loadedCount === totalCertificates) {
+          setTimeout(() => {
+            loadingEl.style.display = 'none';
+            galleryGrid.style.opacity = '1';
+          }, 500);
+        }
+      };
+      
+      // Create gallery HTML
+      let galleryHTML = '';
+      
+      this.certificates.forEach((cert, index) => {
+        galleryHTML += `
+          <div class="certificate-item" 
+               data-aos="fade-up" 
+               data-aos-delay="${index * 100}"
+               data-type="${cert.type}"
+               data-year="${cert.date.split('.')[2]}"
+               data-category="${cert.category}">
+            
+            <div class="certificate-badge">
+              ${cert.type.includes('Hizmet') ? 'Service' : 'Trade'}
+            </div>
+            
+            <div class="certificate-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            
+            <img src="${cert.img}" 
+                 alt="${cert.title}"
+                 class="certificate-img"
+                 data-index="${index}"
+                 onload="checkAllLoaded()"
+                 onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 566\"><rect width=\"400\" height=\"566\" fill=\"%23f8fafc\"/><text x=\"200\" y=\"280\" text-anchor=\"middle\" fill=\"%2394a3b8\" font-family=\"system-ui\">Certificate Image</text></svg>'; checkAllLoaded()">
+            
+            <div class="certificate-overlay">
+              <div class="certificate-title">
+                ${cert.brandName ? `<strong>${cert.brandName}</strong><br>` : ''}
+                ${cert.title.split(' - ')[0]}
+              </div>
+              <div class="certificate-details">
+                <div class="certificate-number">No: ${cert.number}</div>
+                <div class="certificate-date">
+                  Registered: ${cert.date}<br>
+                  Valid: ${cert.validFrom} - ${cert.validFor}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      
+      galleryGrid.innerHTML = galleryHTML;
+      galleryGrid.style.opacity = '0.3';
+      galleryGrid.style.transition = 'opacity 0.5s ease';
+      
+      // Add click events
+      setTimeout(() => {
+        document.querySelectorAll('.certificate-item').forEach((item, index) => {
+          item.addEventListener('click', () => this.openLightbox(index));
+          item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              this.openLightbox(index);
+            }
+          });
+          item.setAttribute('tabindex', '0');
+          item.setAttribute('role', 'button');
+          item.setAttribute('aria-label', `View certificate ${this.certificates[index].number}`);
+        });
+        
+        // Animate grid in
+        setTimeout(() => {
+          galleryGrid.style.opacity = '1';
+        }, 300);
+      }, 100);
+      
+      // Set timeout for loading
+      setTimeout(() => {
+        if (loadedCount < totalCertificates) {
+          loadingEl.innerHTML = `
+            <div class="loading-spinner"></div>
+            <p class="text-gray-600 mt-4">Loaded ${loadedCount} of ${totalCertificates} certificates</p>
+          `;
+        }
+      }, 3000);
+    },
+    
+    // Setup lightbox
+    setupLightbox: function() {
+      // Create lightbox if not exists
+      if (!document.getElementById('certificateLightbox')) {
+        const lightboxHTML = `
+          <div class="lightbox" id="certificateLightbox">
+            <!-- Content will be added dynamically -->
+          </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', lightboxHTML);
+      }
+      
+      // Add event listeners
+      document.getElementById('lightboxClose')?.addEventListener('click', () => this.closeLightbox());
+      document.getElementById('lightboxNext')?.addEventListener('click', () => this.nextCertificate());
+      document.getElementById('lightboxPrev')?.addEventListener('click', () => this.prevCertificate());
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        const lightbox = document.getElementById('certificateLightbox');
+        if (!lightbox?.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') this.closeLightbox();
+        if (e.key === 'ArrowRight') this.nextCertificate();
+        if (e.key === 'ArrowLeft') this.prevCertificate();
+      });
+      
+      // Close on background click
+      document.getElementById('certificateLightbox')?.addEventListener('click', (e) => {
+        if (e.target.id === 'certificateLightbox') {
+          this.closeLightbox();
+        }
+      });
+    },
+    
+    // Setup filter buttons
+    setupFilters: function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Remove active class from all buttons
+          filterButtons.forEach(b => b.classList.remove('active'));
+          // Add active class to clicked button
+          this.classList.add('active');
+        });
+      });
+    },
+    
+    // Open lightbox with certificate
+    openLightbox: function(index) {
+      this.currentIndex = index;
+      this.updateLightbox();
+      
+      const lightbox = document.getElementById('certificateLightbox');
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Trap focus in lightbox
+      document.getElementById('lightboxClose').focus();
+    },
+    
+    closeLightbox: function() {
+      const lightbox = document.getElementById('certificateLightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    },
+    
+    updateLightbox: function() {
+      const cert = this.certificates[this.currentIndex];
+      if (!cert) return;
+      
+      // Update image
+      document.getElementById('lightboxImage').src = cert.img;
+      document.getElementById('lightboxImage').alt = cert.title;
+      
+      // Update title
+      document.getElementById('lightboxTitle').textContent = cert.title;
+      
+      // Update info section
+      const infoHTML = `
+        <div class="lightbox-info-item">
+          <div class="lightbox-info-label">Certificate Number</div>
+          <div>${cert.number}</div>
+        </div>
+        <div class="lightbox-info-item">
+          <div class="lightbox-info-label">Type</div>
+          <div>${cert.type}</div>
+        </div>
+        <div class="lightbox-info-item">
+          <div class="lightbox-info-label">Registration Date</div>
+          <div>${cert.date}</div>
+        </div>
+        <div class="lightbox-info-item">
+          <div class="lightbox-info-label">Valid From</div>
+          <div>${cert.validFrom}</div>
+        </div>
+        <div class="lightbox-info-item">
+          <div class="lightbox-info-label">Validity Period</div>
+          <div>${cert.validFor}</div>
+        </div>
+        <div class="lightbox-info-item">
+          <div class="lightbox-info-label">Classes</div>
+          <div>${cert.classes}</div>
+        </div>
+        <div class="lightbox-info-item">
+          <div class="lightbox-info-label">Owner</div>
+          <div>${cert.owner}</div>
+        </div>
+        ${cert.brandName ? `
+        <div class="lightbox-info-item">
+          <div class="lightbox-info-label">Brand Name</div>
+          <div><strong>${cert.brandName}</strong></div>
+        </div>
+        ` : ''}
+      `;
+      
+      document.getElementById('lightboxInfo').innerHTML = infoHTML;
+      document.getElementById('lightboxCounter').textContent = 
+        `Certificate ${this.currentIndex + 1} of ${this.certificates.length}`;
+    },
+    
+    nextCertificate: function() {
+      this.currentIndex = (this.currentIndex + 1) % this.certificates.length;
+      this.updateLightbox();
+    },
+    
+    prevCertificate: function() {
+      this.currentIndex = (this.currentIndex - 1 + this.certificates.length) % this.certificates.length;
+      this.updateLightbox();
+    }
+  };
+
+  // Filter function for certificates
+  function filterCertificates(filter) {
+    const items = document.querySelectorAll('.certificate-item');
+    const emptyState = document.getElementById('certificateEmpty');
+    let visibleCount = 0;
+    
+    items.forEach(item => {
+      const type = item.getAttribute('data-type');
+      const year = item.getAttribute('data-year');
+      const category = item.getAttribute('data-category');
+      
+      let shouldShow = false;
+      
+      if (filter === 'all') {
+        shouldShow = true;
+      } else if (filter === 'Ticaret' && type.includes('Ticaret')) {
+        shouldShow = true;
+      } else if (filter === 'Hizmet' && type.includes('Hizmet')) {
+        shouldShow = true;
+      } else if (filter === '2023' && year === '2023') {
+        shouldShow = true;
+      } else if (filter === '2024' && year === '2024') {
+        shouldShow = true;
+      } else if (filter === '2025' && year === '2025') {
+        shouldShow = true;
+      } else if (filter === category) {
+        shouldShow = true;
+      }
+      
+      if (shouldShow) {
+        item.style.display = 'block';
+        setTimeout(() => {
+          item.style.opacity = '1';
+          item.style.transform = 'scale(1)';
+        }, 50);
+        visibleCount++;
+      } else {
+        item.style.opacity = '0';
+        item.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+          item.style.display = 'none';
+        }, 300);
+      }
+    });
+    
+    // Show/hide empty state
+    if (visibleCount === 0) {
+      emptyState.classList.remove('hidden');
+    } else {
+      emptyState.classList.add('hidden');
+    }
+  }
+
+  // Initialize when page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    certificateGallery.init();
+    
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+  });
+</script>
+
 </body>
 </html>
