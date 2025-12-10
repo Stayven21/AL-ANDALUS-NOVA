@@ -54,6 +54,79 @@
         gap: 10px;
       }
     }
+    /* Project Thumbnails */
+.project-thumbnails {
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    overflow-x: auto;
+    max-width: 90%;
+    margin: 0 auto;
+    z-index: 100;
+}
+
+.thumbnail-item {
+    width: 80px;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    border: 2px solid transparent;
+}
+
+.thumbnail-item:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.thumbnail-item.active {
+    opacity: 1;
+    border-color: #f59e0b;
+    transform: scale(1.1);
+}
+
+.thumbnail-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Project info styling */
+.lightbox-info {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+    padding: 1.5rem;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Gallery item badge */
+.gallery-icon {
+    position: relative;
+}
+
+/* Responsive thumbnails */
+@media (max-width: 768px) {
+    .thumbnail-item {
+        width: 60px;
+        height: 45px;
+    }
+    
+    .project-thumbnails {
+        bottom: 60px;
+    }
+}
+
+/* Category badge */
+.bg-gold-500 {
+    background-color: #f59e0b;
+}
   </style>
    <link rel="stylesheet" href="css/components/gallery.css">
 </head>
@@ -120,29 +193,24 @@
 
 
   <!-- Gallery Section - ADD THIS DIRECTLY INSTEAD OF PLACEHOLDER -->
-  <section class="section-padding bg-gradient-to-b from-blue-50 to-white" id="gallerySection">
+<section class="section-padding bg-gradient-to-b from-blue-50 to-white" id="gallerySection">
     <div class="container">
-      <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
-        <h2 class="text-3xl md:text-4xl font-bold text-emerald-900 mb-4">Our Portfolio Gallery</h2>
-        <div class="gold-underline mx-auto"></div>
-        <p class="text-lg text-gray-600 mt-6" data-aos="fade-up" data-aos-delay="100">
-          Showcasing our finest exhibition stands and technical projects from around the world
-        </p>
-      </div>
+        <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-bold text-emerald-900 mb-4">Our Portfolio Gallery</h2>
+            <div class="gold-underline mx-auto"></div>
+            <p class="text-lg text-gray-600 mt-6" data-aos="fade-up" data-aos-delay="100">
+                Showcasing our finest exhibition stands and technical projects from around the world
+            </p>
+        </div>
 
-      <!-- Gallery Grid -->
-      <div class="gallery-grid" id="galleryGrid">
-        <!-- Gallery items will be dynamically inserted here by gallery.js -->
-      </div>
+        <!-- Gallery Grid - Show 1 image per project -->
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Projects will be dynamically inserted here -->
+        </div>
 
-      <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="1000">
-        <button onclick="galleryConfig.openLightbox(0)" class="btn-gold px-8 py-3 text-lg">
-          <i class="fas fa-play-circle mr-2"></i>
-          View All Projects
-        </button>
-      </div>
+        
     </div>
-  </section>
+</section>
   
   <!-- About Section -->
   <section class="section-padding bg-white">
