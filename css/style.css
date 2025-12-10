@@ -1,0 +1,72 @@
+:root{
+  --emerald-900: #064e3b;
+  --emerald-700: #065f46;
+  --emerald-500: #10b981;
+  --glass-bg: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.08);
+  --gold: #D4AF37;
+  --transition-speed: 0.3s;
+}
+
+html { 
+  scroll-behavior: smooth; 
+}
+
+body {
+  padding-top: 80px;
+  background-color: #f8fafc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Common glass effect */
+.glass {
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(6px) saturate(120%);
+  border-radius: 12px;
+}
+
+.gold-underline {
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  height: 3px;
+  width: 90px;
+  border-radius: 999px;
+  margin-top: .5rem;
+}
+
+/* Common button styles */
+.btn-gold {
+  background: linear-gradient(135deg, rgba(212,175,55,0.95), rgba(255,223,120,0.95));
+  color: #07221b;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.4);
+}
+
+/* Section spacing */
+.section-padding {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 7rem 1.5rem;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
