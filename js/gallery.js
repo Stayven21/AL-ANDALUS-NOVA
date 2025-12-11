@@ -44,7 +44,7 @@ const galleryConfig = {
             location: "Dubai World Trade Center, UAE",
             year: "",
             category: "",
-            mainImage: "images/technical/plast/Plast1.png",
+            mainImage: "images/technical/plast/Plast4.png",
             images: [
                 {
                     img: "images/technical/plast/Plast2.png",
