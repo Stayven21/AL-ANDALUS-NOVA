@@ -400,7 +400,7 @@ const galleryConfig = {
                     caption: ""
                 },
                   {
-                    img: "iimages/technical/GULFOOD/GULFOOD3.png",
+                    img: "images/technical/GULFOOD/GULFOOD3.png",
                     caption: ""
                 }
             

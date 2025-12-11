@@ -248,34 +248,31 @@
   /* Certificate Grid - Special for document display */
   .certificate-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    padding: 1rem 0;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
   }
   
   .certificate-item {
-    position: relative;
-    border-radius: 12px;
+    border-radius: 10px;
     overflow: hidden;
-    cursor: pointer;
-    aspect-ratio: 1/1.414; /* A4 paper ratio */
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
     background: white;
-    border: 1px solid #e5e7eb;
   }
   
   .certificate-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-    border-color: #10b981;
+     transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
   }
   
   .certificate-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s ease;
+     width: 100%;
+    height: 180px;
+    object-fit: contain;
+    background: #f8fafc;
+    padding: 0.5rem;
+    border-radius: 8px;
   }
   
   .certificate-item:hover .certificate-img {
@@ -1125,7 +1122,7 @@
         loadedCount++;
         if (loadedCount === totalCertificates) {
           setTimeout(() => {
-            loadingEl.style.display = 'none';
+            if (loadingEl) loadingEl.style.display = 'none';
             galleryGrid.style.opacity = '1';
           }, 500);
         }
@@ -1135,6 +1132,9 @@
       let galleryHTML = '';
       
       this.certificates.forEach((cert, index) => {
+        // Use a fallback image if the original fails to load
+        const fallbackImage = `https://via.placeholder.com/300x200/059669/ffffff?text=CERT-${cert.number}`;
+        
         galleryHTML += `
           <div class="certificate-item" 
                data-aos="fade-up" 
@@ -1156,7 +1156,7 @@
                  class="certificate-img"
                  data-index="${index}"
                  onload="checkAllLoaded()"
-                 onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 566\"><rect width=\"400\" height=\"566\" fill=\"%23f8fafc\"/><text x=\"200\" y=\"280\" text-anchor=\"middle\" fill=\"%2394a3b8\" font-family=\"system-ui\">Certificate Image</text></svg>'; checkAllLoaded()">
+                 onerror="this.onerror=null; this.src='${fallbackImage}'; checkAllLoaded()">
             
             <div class="certificate-overlay">
               <div class="certificate-title">
@@ -1202,7 +1202,7 @@
       
       // Set timeout for loading
       setTimeout(() => {
-        if (loadedCount < totalCertificates) {
+        if (loadedCount < totalCertificates && loadingEl) {
           loadingEl.innerHTML = `
             <div class="loading-spinner"></div>
             <p class="text-gray-600 mt-4">Loaded ${loadedCount} of ${totalCertificates} certificates</p>
@@ -1217,16 +1217,32 @@
       if (!document.getElementById('certificateLightbox')) {
         const lightboxHTML = `
           <div class="lightbox" id="certificateLightbox">
-            <!-- Content will be added dynamically -->
+            <div class="lightbox-content">
+              <button class="lightbox-close" id="lightboxClose">
+                <i class="fas fa-times"></i>
+              </button>
+              <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="lightbox-nav lightbox-next" id="lightboxNext">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <img id="lightboxImage" class="lightbox-img" src="" alt="">
+              <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <div id="lightboxInfo" class="lightbox-info-grid"></div>
+                <div id="lightboxCounter" class="lightbox-counter"></div>
+              </div>
+            </div>
           </div>
         `;
         document.body.insertAdjacentHTML('beforeend', lightboxHTML);
       }
       
       // Add event listeners
-      document.getElementById('lightboxClose')?.addEventListener('click', () => this.closeLightbox());
-      document.getElementById('lightboxNext')?.addEventListener('click', () => this.nextCertificate());
-      document.getElementById('lightboxPrev')?.addEventListener('click', () => this.prevCertificate());
+      document.getElementById('lightboxClose').addEventListener('click', () => this.closeLightbox());
+      document.getElementById('lightboxNext').addEventListener('click', () => this.nextCertificate());
+      document.getElementById('lightboxPrev').addEventListener('click', () => this.prevCertificate());
       
       // Keyboard navigation
       document.addEventListener('keydown', (e) => {
@@ -1239,7 +1255,7 @@
       });
       
       // Close on background click
-      document.getElementById('certificateLightbox')?.addEventListener('click', (e) => {
+      document.getElementById('certificateLightbox').addEventListener('click', (e) => {
         if (e.target.id === 'certificateLightbox') {
           this.closeLightbox();
         }
@@ -1258,90 +1274,58 @@
         });
       });
     },
-    
-    // Open lightbox with certificate
-    openLightbox: function(index) {
-      this.currentIndex = index;
-      this.updateLightbox();
-      
-      const lightbox = document.getElementById('certificateLightbox');
-      lightbox.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      
-      // Trap focus in lightbox
-      document.getElementById('lightboxClose').focus();
-    },
-    
-    closeLightbox: function() {
-      const lightbox = document.getElementById('certificateLightbox');
-      lightbox.classList.remove('active');
-      document.body.style.overflow = 'auto';
-    },
-    
-    updateLightbox: function() {
-      const cert = this.certificates[this.currentIndex];
-      if (!cert) return;
-      
-      // Update image
-      document.getElementById('lightboxImage').src = cert.img;
-      document.getElementById('lightboxImage').alt = cert.title;
-      
-      // Update title
-      document.getElementById('lightboxTitle').textContent = cert.title;
-      
-      // Update info section
-      const infoHTML = `
-        <div class="lightbox-info-item">
-          <div class="lightbox-info-label">Certificate Number</div>
-          <div>${cert.number}</div>
-        </div>
-        <div class="lightbox-info-item">
-          <div class="lightbox-info-label">Type</div>
-          <div>${cert.type}</div>
-        </div>
-        <div class="lightbox-info-item">
-          <div class="lightbox-info-label">Registration Date</div>
-          <div>${cert.date}</div>
-        </div>
-        <div class="lightbox-info-item">
-          <div class="lightbox-info-label">Valid From</div>
-          <div>${cert.validFrom}</div>
-        </div>
-        <div class="lightbox-info-item">
-          <div class="lightbox-info-label">Validity Period</div>
-          <div>${cert.validFor}</div>
-        </div>
-        <div class="lightbox-info-item">
-          <div class="lightbox-info-label">Classes</div>
-          <div>${cert.classes}</div>
-        </div>
-        <div class="lightbox-info-item">
-          <div class="lightbox-info-label">Owner</div>
-          <div>${cert.owner}</div>
-        </div>
-        ${cert.brandName ? `
-        <div class="lightbox-info-item">
-          <div class="lightbox-info-label">Brand Name</div>
-          <div><strong>${cert.brandName}</strong></div>
-        </div>
-        ` : ''}
-      `;
-      
-      document.getElementById('lightboxInfo').innerHTML = infoHTML;
-      document.getElementById('lightboxCounter').textContent = 
-        `Certificate ${this.currentIndex + 1} of ${this.certificates.length}`;
-    },
-    
-    nextCertificate: function() {
-      this.currentIndex = (this.currentIndex + 1) % this.certificates.length;
-      this.updateLightbox();
-    },
-    
-    prevCertificate: function() {
-      this.currentIndex = (this.currentIndex - 1 + this.certificates.length) % this.certificates.length;
-      this.updateLightbox();
+    // Open lightbox with certificate - SIMPLE VERSION
+openLightbox: function(index) {
+  const cert = this.certificates[index];
+  
+  // Create simple fullscreen lightbox
+  const lightboxHTML = `
+    <div class="simple-lightbox" id="simpleLightbox" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      cursor: pointer;
+    ">
+      <img src="${cert.img}" 
+           alt="${cert.title}"
+           style="
+             max-width: 90%;
+             max-height: 90vh;
+             border-radius: 8px;
+             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+           "
+           onclick="event.stopPropagation()">
+    </div>
+  `;
+  
+  // Remove existing lightbox if any
+  document.getElementById('simpleLightbox')?.remove();
+  
+  // Add new lightbox
+  document.body.insertAdjacentHTML('beforeend', lightboxHTML);
+  
+  // Close on click anywhere
+  document.getElementById('simpleLightbox').addEventListener('click', () => {
+    document.getElementById('simpleLightbox').remove();
+  });
+  
+  // Close with ESC key
+  document.addEventListener('keydown', function closeOnEsc(e) {
+    if (e.key === 'Escape') {
+      document.getElementById('simpleLightbox')?.remove();
+      document.removeEventListener('keydown', closeOnEsc);
     }
-  };
+  });
+},
+  }
+   
 
   // Filter function for certificates
   function filterCertificates(filter) {
@@ -1389,10 +1373,12 @@
     });
     
     // Show/hide empty state
-    if (visibleCount === 0) {
-      emptyState.classList.remove('hidden');
-    } else {
-      emptyState.classList.add('hidden');
+    if (emptyState) {
+      if (visibleCount === 0) {
+        emptyState.classList.remove('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+      }
     }
   }
 
@@ -1401,11 +1387,13 @@
     certificateGallery.init();
     
     // Initialize AOS
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100
-    });
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+      });
+    }
   });
 </script>
 
