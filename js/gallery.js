@@ -37,31 +37,31 @@ const galleryConfig = {
         //     ],
         //     description: "A premium exhibition stand for PAVAN featuring interactive displays, meeting rooms, and a fully functional product demonstration area."
         // },
-        {
-            id: 2,
-            title: "Plast Eurasia international Fair.",
-            client: "GDK Blow Moulding Machines",
-            location: "Dubai World Trade Center, UAE",
-            year: "",
-            category: "",
-            mainImage: "images/technical/plast/Plast4.png",
-            images: [
-                {
-                    img: "images/technical/plast/Plast2.png",
-                    caption: ""
-                },
-                {
-                    img: "images/technical/plast/Plast3.png",
-                    caption: ""
-                },
-                {
-                    img: "images/technical/plast/Plast4.png",
-                    caption: ""
-                }
-            ],
-            description: ""
-        },
-        ,
+        // {
+        //     id: 2,
+        //     title: "Plast Eurasia international Fair.",
+        //     client: "GDK Blow Moulding Machines",
+        //     location: "Dubai World Trade Center, UAE",
+        //     year: "",
+        //     category: "",
+        //     mainImage: "images/technical/plast/Plast4.png",
+        //     images: [
+        //         {
+        //             img: "images/technical/plast/Plast2.png",
+        //             caption: ""
+        //         },
+        //         {
+        //             img: "images/technical/plast/Plast3.png",
+        //             caption: ""
+        //         },
+        //         {
+        //             img: "images/technical/plast/Plast4.png",
+        //             caption: ""
+        //         }
+        //     ],
+        //     description: ""
+        // },
+        // ,
         {
             id: 3,
             title: "ANUGA Fair in Cologne, Germany",
